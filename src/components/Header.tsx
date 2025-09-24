@@ -34,7 +34,7 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full glass-nav backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center space-x-2">
           <Leaf className="h-8 w-8 text-primary" />
@@ -42,11 +42,11 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-4">
           <Button
             variant={currentRole === null ? "default" : "ghost"}
             onClick={() => onRoleChange?.(null)}
-            className="flex items-center space-x-2"
+            className="glass-button border-0 bg-transparent hover:glass-strong"
           >
             <Users className="h-4 w-4" />
             <span>Overview</span>
@@ -58,7 +58,7 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
                 key={role.key}
                 variant={currentRole === role.key ? "default" : "ghost"}
                 onClick={() => onRoleChange?.(role.key)}
-                className="flex items-center space-x-2"
+                className="glass-button border-0 bg-transparent hover:glass-strong"
               >
                 <Icon className="h-4 w-4" />
                 <span>{role.label}</span>
@@ -71,7 +71,7 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
         <Button
           variant="ghost"
           size="sm"
-          className="md:hidden"
+          className="md:hidden glass-button border-0 bg-transparent"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -80,7 +80,7 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden border-t bg-background/95 backdrop-blur">
+        <div className="md:hidden glass-strong backdrop-blur-xl">
           <nav className="flex flex-col space-y-2 p-4">
             <Button
               variant={currentRole === null ? "default" : "ghost"}
@@ -88,7 +88,7 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
                 onRoleChange?.(null);
                 setIsMenuOpen(false);
               }}
-              className="justify-start"
+              className="justify-start glass-button border-0 bg-transparent"
             >
               <Users className="h-4 w-4 mr-2" />
               Overview
@@ -103,7 +103,7 @@ const Header = ({ currentRole, onRoleChange }: HeaderProps) => {
                     onRoleChange?.(role.key);
                     setIsMenuOpen(false);
                   }}
-                  className="justify-start"
+                  className="justify-start glass-button border-0 bg-transparent"
                 >
                   <Icon className="h-4 w-4 mr-2" />
                   {role.label}

@@ -36,7 +36,7 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
           <Button 
             size="lg" 
             onClick={onGetStarted}
-            className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6"
+            className="glass-button bg-white/20 text-white border-white/30 hover:bg-white/30 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
           >
             Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -44,7 +44,7 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
+            className="glass-button border-white/30 text-white hover:bg-white/20 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
           >
             View Demo
           </Button>
@@ -52,19 +52,19 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="agri-card-elevated bg-white/10 backdrop-blur p-6 rounded-2xl">
+          <div className="glass-card hover:glass-strong transition-all duration-300 hover:scale-105">
             <Shield className="h-12 w-12 mx-auto mb-4 text-white" />
             <h3 className="text-xl font-semibold mb-2">Blockchain Security</h3>
             <p className="text-white/80">Immutable records ensure data integrity and prevent fraud</p>
           </div>
           
-          <div className="agri-card-elevated bg-white/10 backdrop-blur p-6 rounded-2xl">
+          <div className="glass-card hover:glass-strong transition-all duration-300 hover:scale-105">
             <Zap className="h-12 w-12 mx-auto mb-4 text-white" />
             <h3 className="text-xl font-semibold mb-2">Real-time Tracking</h3>
             <p className="text-white/80">Monitor your produce journey instantly with QR codes</p>
           </div>
           
-          <div className="agri-card-elevated bg-white/10 backdrop-blur p-6 rounded-2xl">
+          <div className="glass-card hover:glass-strong transition-all duration-300 hover:scale-105">
             <Globe className="h-12 w-12 mx-auto mb-4 text-white" />
             <h3 className="text-xl font-semibold mb-2">Global Network</h3>
             <p className="text-white/80">Connect with farmers, distributors, and retailers worldwide</p>
