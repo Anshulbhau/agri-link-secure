@@ -10,6 +10,7 @@ import BlockchainExplorer from "@/components/BlockchainExplorer";
 type UserRole = "farmer" | "distributor" | "retailer" | "consumer" | null;
 
 const Index = () => {
+  console.log("Index page rendering...");
   const [currentRole, setCurrentRole] = useState<UserRole>(null);
 
   const handleGetStarted = () => {
