@@ -33,19 +33,28 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{animationDelay: "1s"}}></div>
+      </div>
+      
       <Header currentRole={currentRole} onRoleChange={setCurrentRole} />
       
-      <main>
-        {renderContent()}
+      <main className="relative z-10">
+        <div className="animate-fade-in">
+          {renderContent()}
+        </div>
       </main>
 
       {currentRole && (
-        <footer className="border-t mt-16">
+        <footer className="border-t border-white/10 mt-16 glass-subtle">
           <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-center md:text-left">
-                <h3 className="font-semibold mb-2">AgriChain Network</h3>
+                <h3 className="font-semibold mb-2 text-lg">AgriChain Network</h3>
                 <p className="text-sm text-muted-foreground">
                   Transparent agricultural supply chain powered by blockchain technology
                 </p>
@@ -53,13 +62,13 @@ const Index = () => {
               <div className="flex gap-4">
                 <button 
                   onClick={() => setCurrentRole(null)}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="glass-nav hover:glass-strong transition-all duration-300 hover:scale-105"
                 >
                   Back to Overview
                 </button>
                 <button 
                   onClick={() => alert('Blockchain Explorer - Feature coming soon!')}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="glass-nav hover:glass-strong transition-all duration-300 hover:scale-105"
                 >
                   Blockchain Explorer
                 </button>

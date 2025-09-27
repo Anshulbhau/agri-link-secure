@@ -106,71 +106,104 @@ const FarmerDashboard = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-3xl font-bold flex items-center gap-3">
-            <Sprout className="h-8 w-8 text-primary" />
-            Farmer Dashboard
+    <div className="container mx-auto px-4 py-8 animate-fade-in">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 gap-4">
+        <div className="space-y-2">
+          <h1 className="text-4xl font-bold flex items-center gap-3 animate-scale-in">
+            <div className="p-3 rounded-2xl bg-gradient-to-br from-primary to-primary-light text-white shadow-lg animate-float">
+              <Sprout className="h-8 w-8" />
+            </div>
+            <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+              Farmer Dashboard
+            </span>
           </h1>
-          <p className="text-muted-foreground mt-2">
-            Manage your agricultural produce and track blockchain transactions
+          <p className="text-muted-foreground text-lg max-w-2xl">
+            Manage your agricultural produce and track blockchain transactions with real-time transparency
           </p>
         </div>
-        <Button onClick={() => setShowAddForm(true)} className="flex items-center gap-2">
-          <Plus className="h-4 w-4" />
+        <Button 
+          onClick={() => setShowAddForm(true)} 
+          variant="gradient"
+          size="lg"
+          className="flex items-center gap-2 animate-slide-in-right shadow-lg"
+        >
+          <Plus className="h-5 w-5" />
           Add New Produce
         </Button>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid md:grid-cols-4 gap-6 mb-8">
-        <Card className="agri-card-elevated">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 animate-fade-in">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Products</p>
-                <p className="text-3xl font-bold text-primary">{products.length}</p>
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-white/80">Total Products</p>
+                <p className="text-3xl font-bold text-white animate-pulse-slow">{products.length}</p>
+                <div className="flex items-center text-xs text-emerald-300">
+                  <TrendingUp className="h-3 w-3 mr-1" />
+                  +12% from last month
+                </div>
               </div>
-              <Package className="h-8 w-8 text-primary/60" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 backdrop-blur-sm">
+                <Package className="h-8 w-8 text-primary animate-float" />
+              </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="agri-card-elevated">
+        <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: "0.1s"}}>
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Revenue</p>
-                <p className="text-3xl font-bold text-success">$2,845</p>
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-white/80">Total Revenue</p>
+                <p className="text-3xl font-bold text-emerald-300 animate-pulse-slow">$2,845</p>
+                <div className="flex items-center text-xs text-emerald-300">
+                  <TrendingUp className="h-3 w-3 mr-1" />
+                  +8.2% from last month
+                </div>
               </div>
-              <DollarSign className="h-8 w-8 text-success/60" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-400/10 backdrop-blur-sm">
+                <DollarSign className="h-8 w-8 text-emerald-400 animate-float" style={{animationDelay: "0.5s"}} />
+              </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="agri-card-elevated">
+        <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: "0.2s"}}>
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Active Batches</p>
-                <p className="text-3xl font-bold text-warning">
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-white/80">Active Batches</p>
+                <p className="text-3xl font-bold text-amber-300 animate-pulse-slow">
                   {products.filter(p => p.status !== "shipped").length}
                 </p>
+                <div className="flex items-center text-xs text-amber-300">
+                  <Package className="h-3 w-3 mr-1" />
+                  In processing
+                </div>
               </div>
-              <TrendingUp className="h-8 w-8 text-warning/60" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-400/10 backdrop-blur-sm">
+                <TrendingUp className="h-8 w-8 text-amber-400 animate-float" style={{animationDelay: "1s"}} />
+              </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="agri-card-elevated">
+        <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: "0.3s"}}>
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Farm Plots</p>
-                <p className="text-3xl font-bold text-earth">12</p>
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-white/80">Farm Plots</p>
+                <p className="text-3xl font-bold text-orange-300 animate-pulse-slow">12</p>
+                <div className="flex items-center text-xs text-orange-300">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  All active
+                </div>
               </div>
-              <MapPin className="h-8 w-8 text-earth/60" />
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-400/10 backdrop-blur-sm">
+                <MapPin className="h-8 w-8 text-orange-400 animate-float" style={{animationDelay: "1.5s"}} />
+              </div>
             </div>
           </CardContent>
         </Card>
